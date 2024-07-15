@@ -44,12 +44,14 @@ async function request_otp(prompt) {
                 console.log(code);
                 bot.stopPolling().then(() => {
                     bot.sendMessage(res.chat.id, "Got it, thanks!");
-                    return code;
+                    return resolve(code);
                 });
             });
         });
     });
 }
+
+export { request_otp };
 
 // (async () => {
 //     const text = await request_otp();
